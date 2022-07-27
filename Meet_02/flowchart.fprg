@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Adam"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-06-02 12:39:56 AM"/>
+        <attribute name="created" value="QWRhbTtERVNLVE9QLUVDOUs3UTc7MjAyMi0wNi0wMTswOTo0MDozNCBQTTsyNjkw"/>
+        <attribute name="edited" value="QWRhbTtERVNLVE9QLUVDOUs3UTc7MjAyMi0wNi0wMjsxMjozOTo1NiBBTTsxOzI3OTA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="InputJenis, InputHari, TotalHarga, angka" type="Integer" array="False" size=""/>
+            <assign variable="angka" expression="0"/>
+            <call expression="Menu()"/>
+            <while expression="angka != 1">
+                <input variable="InputJenis"/>
+                <if expression="InputJenis &gt;= 1 &amp;&amp; InputJenis &lt;= 3">
+                    <then>
+                        <assign variable="angka" expression="1"/>
+                    </then>
+                    <else>
+                        <call expression="ErrorMsg()"/>
+                    </else>
+                </if>
+            </while>
+            <assign variable="angka" expression="0"/>
+            <while expression="angka != 1">
+                <input variable="InputHari"/>
+                <if expression="InputHari &lt;= 0">
+                    <then>
+                        <call expression="ErrorMsg()"/>
+                    </then>
+                    <else>
+                        <assign variable="angka" expression="1"/>
+                    </else>
+                </if>
+            </while>
+            <if expression="InputJenis == 1">
+                <then>
+                    <assign variable="TotalHarga" expression="Total(InputHari,250000)"/>
+                </then>
+                <else>
+                    <if expression="InputJenis == 2">
+                        <then>
+                            <assign variable="TotalHarga" expression="Total(InputHari,500000)"/>
+                        </then>
+                        <else>
+                            <if expression="InputJenis == 3">
+                                <then>
+                                    <assign variable="TotalHarga" expression="Total(InputHari,1000000)"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="TotalHarga" newline="True"/>
+        </body>
+    </function>
+    <function name="DumpMethod" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="methode ini gk pernah di panggil, kenapa ? tanya akbar."/>
+        </body>
+    </function>
+    <function name="ErrorMsg" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;terjadi kesalahan input&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="Menu" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;+------------------------------+\n&quot;+&#13;&#10;&quot;|      Program sewa Tenda      |\n&quot;+&#13;&#10;&quot;+------------------------------+\n&quot;+&#13;&#10;&quot;|  1. Tenda Kecil: 250.000     |\n&quot;+&#13;&#10;&quot;|  2. Tenda Sedang: 500.000    |\n&quot;+&#13;&#10;&quot;|  3. Tenda Besar: 1.000.000   |\n&quot;+&#13;&#10;&quot;+------------------------------+\n&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="Total" type="Integer" variable="a * b">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body/>
+    </function>
+</flowgorithm>
